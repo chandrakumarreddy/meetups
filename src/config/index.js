@@ -8,6 +8,7 @@ module.exports = {
     siteName: "Meetups"
   },
   data: {
-    speakers: path.resolve(__dirname, "../data/speakers.json")
+    speakers: path.resolve(__dirname, "../data/speakers.json"),
+    feedback: path.resolve(__dirname, "../data/feedback.json")
   }
 };

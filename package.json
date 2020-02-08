@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "dev": "nodemon src/server",
+    "dev": "node src/server",
     "prod": "env NODE_ENV=production node src/server"
   },
   "keywords": [],
@@ -13,6 +13,7 @@
   "dependencies": {
     "express": "^4.17.1",
     "http-errors": "^1.7.3",
+    "morgan": "^1.9.1",
     "pug": "^2.0.4"
   },
   "devDependencies": {

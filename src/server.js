@@ -1,12 +1,15 @@
 const express = require("express");
 const path = require("path");
 const createError = require("http-errors");
+const logger = require("morgan");
 const app = express();
 
 const router = require("./routes");
 const config = require("./config");
 const SpeakersService = require("./services/speakers");
+const FeedbackService = require("./services/feedback");
 const speakersService = new SpeakersService(config.data.speakers);
+const feedbackService = new FeedbackService(config.data.feedback);
 
 app.set("view engine", "pug");
 app.set("views", path.resolve(__dirname, "views"));
@@ -16,6 +19,7 @@ app.get("/favicon.ico", (req, res) => {
 });
 if (app.get("env") === "development") {
   app.locals.pretty = true;
+  app.use(logger("dev"));
 }
 app.locals.title = config[app.get("env")].siteName;
 app.use(express.json());
@@ -29,7 +33,7 @@ app.use(async (req, res, next) => {
   }
 });
 
-app.use("/", router({ speakersService }));
+app.use("/", router({ speakersService, feedbackService }));
 app.use((req, res, next) => {
   return next(createError(404, "Page not Found"));
 });

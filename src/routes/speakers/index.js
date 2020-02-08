@@ -3,7 +3,8 @@ const router = require("express").Router();
 module.exports = ({ speakersService }) => {
   router.get("/", async (req, res) => {
     const speakers = await speakersService.getList();
-    res.render("speakers", { page: "Speakers List", speakers });
+    const artwork = await speakersService.getAllArtworks();
+    res.render("speakers", { page: "Speakers List", speakers, artwork });
   });
   router.get("/:name", async (req, res) => {
     const { name } = req.params;
