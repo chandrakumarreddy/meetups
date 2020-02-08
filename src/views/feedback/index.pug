@@ -1,0 +1,95 @@
+extends ../layouts/index
+block content
+  #feedback.container
+    .row
+      .col-sm-4
+        h1.feedback-form-title Send us feedback
+        if(error)
+          .alert.alert-danger(role='alert')
+            | All fields are mandatory.check it out!
+        form.feedback-form(action='/feedback' method='POST')
+          .form-group
+            label(for='feedback-form-name') Name
+            input#feedback-form-name.form-control(type='text' placeholder='Enter your name' name='fbName' autocomplete='off')
+          .form-group
+            label(for='feedback-form-title') Title
+            input#feedback-form-title.form-control(type='text' placeholder='Title of your feedback' name='fbTitle' autocomplete='off')
+          .form-group
+            label(for='feedback-form-message') Message
+            textarea#feedback-form-message.form-control(type='text' placeholder='Enter your message, then hit the submit' rows='6' name='fbMessage')
+          button.btn.btn-primary.btn-block(type='submit') Submit
+      aside.col-sm-8
+        .mt-20
+          .row
+            .panel.panel-default.widget
+              .panel-heading
+                span.glyphicon.glyphicon-comment
+                h3.panel-title
+                  | Recent Feedback
+                span.label.label-info
+                  | 78
+              .panel-body
+                ul.list-group
+                  li.list-group-item
+                    .row
+                      .col-xs-12
+                        div
+                          a(href='http://www.jquery2dotnet.com/2013/10/google-style-login-page-desing-usign.html').inherit
+                            | Google Style Login Page Design Using Bootstrap
+                          .mic-info
+                            | By:
+                            a(href='#').inherit Bhaumik Patel
+                            |  on 2 Aug 2013
+                        .comment-text
+                          | Awesome design
+                        .action
+                          button.btn.btn-primary.btn-xs(type='button' title='Edit')
+                            span.glyphicon.glyphicon-pencil
+                          button.btn.btn-success.btn-xs(type='button' title='Approved')
+                              span.glyphicon.glyphicon-ok
+                          button.btn.btn-danger.btn-xs(type='button' title='Delete')
+                              span.glyphicon.glyphicon-trash
+                  li.list-group-item
+                    .row
+                      .col-xs-12
+                        div
+                          a(href='http://bootsnipp.com/BhaumikPatel/snippets/Obgj') Admin Panel Quick Shortcuts
+                          .mic-info
+                            | By:
+                            a(href='#') Bhaumik Patel
+                            |  on 11 Nov 2013
+                        .comment-text
+                          | Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh
+                          | euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim
+                        .action
+                          button.btn.btn-primary.btn-xs(type='button' title='Edit')
+                            span.glyphicon.glyphicon-pencil
+                          button.btn.btn-success.btn-xs(type='button' title='Approved')
+                            span.glyphicon.glyphicon-ok
+                          button.btn.btn-danger.btn-xs(type='button' title='Delete')
+                            span.glyphicon.glyphicon-trash
+                  li.list-group-item
+                    .row
+                      .col-xs-12
+                        div
+                          a(href='http://bootsnipp.com/BhaumikPatel/snippets/4ldn') Cool Sign Up
+                          .mic-info
+                            | By:
+                            a(href='#') Bhaumik Patel
+                            |  on 11 Nov 2013
+                        .comment-text
+                          | Lorem ipsum dolor sit amet, consectetuer adipiscingelit, sed diam nonummy nibh
+                          | euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim
+                        .action
+                          buton.btn.btn-primary.btn-xs(type='button' title='Edit')
+                            span.glyphicon.glyphicon-pencil
+                          button.btn.btn-success.btn-xs(type='button' title='Approved')
+                            span.glyphicon.glyphicon-ok
+                          button.btn.btn-danger.btn-xs(type='button' title='Delete')
+                            span.glyphicon.glyphicon-trash
+                a.btn.btn-primary.btn-sm.btn-block(href='#' role='button')
+                  span.glyphicon.glyphicon-refresh
+                  |  More
+
+
+

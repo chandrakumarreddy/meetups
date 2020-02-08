@@ -1,0 +1,24 @@
+extends ../layouts/index
+block speakersList
+  #speakerList.container
+    .row
+      .col-sm-8
+        article.speakerslist
+          .container
+            .row
+              each speaker in speakers
+                .col-sm-8
+                  h3.speakerslist-title= speaker.title
+                  h5.speakerslist-name
+                    | with &nbsp;
+                    a(href='/speakers/Lorenzo_Garcia')= speaker.name
+                  p.speakerslist-info
+                    a(href='/speakers/Lorenzo_Garcia')
+                      img.speakerslist-img.img-circle.pull-left(src=`/images/speakers/${speaker.shortname}_tn.jpg` alt=`Photo of ${speaker.name}`)
+                    |   #{speaker.summary}
+      aside.col-sm-4
+        include ../includes/artwork
+
+
+
+
